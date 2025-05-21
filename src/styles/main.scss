@@ -1,0 +1,147 @@
+// Variables (usando namespace 'vars')
+@use 'variables' as vars;
+
+// Reset y estilos globales
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: vars.$text-color; // Corregido: vars.$text-color
+  background: vars.$bg-color; // Corregido: vars.$bg-color
+}
+
+/* HEADER STYLES */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: white;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+
+  .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    
+    a {
+      color: #333;
+      text-decoration: none;
+      
+      span {
+        color: #4a7c59;
+      }
+    }
+  }
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.2;
+}
+
+.logo-subtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+  /* Menú desktop */
+  .desktop-nav {
+    ul.nav-list {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 2rem;
+
+      li.nav-item {
+        position: relative;
+
+        .nav-link {
+          color: #333;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1.1rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .link-text {
+            position: relative;
+            z-index: 1;
+          }
+
+          .link-underline {
+            height: 2px;
+            width: 0;
+            background: #f01010;
+            transition: width 0.3s ease;
+            margin-top: 4px;
+          }
+
+          &:hover .link-underline {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('/src/assets/hero-bg.jpg') center/cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    span {
+      color: vars.$primary-color; // Corregido: vars.$primary-color
+    }
+  }
+  .btn {
+    background: vars.$primary-color; // Corregido: vars.$primary-color
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+}

@@ -1,0 +1,305 @@
+// Variables
+$primary-color: #3b82f6;
+$text-color: #fff;
+$transition-speed: 0.8s;
+// ... (conserva todos los estilos anteriores del carrusel)
+
+.home-container {
+  position: relative;
+}
+
+.bottom-text {
+  display: block;
+  text-align: center;
+  padding: 1.5rem 0;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  overflow: hidden;
+  margin-top: -5px; // Para pegar al carrusel
+  
+  // Efecto de brillo animado
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  // Detalle decorativo inferior
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #9ae5e7, #ef4444, #3b82f6);
+  }
+
+  // Efecto de letras con sombra
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  
+  // Variación de color en palabras
+  span:nth-child(1) { color: #9ae5e7; }
+  span:nth-child(2) { color: #ef4444; }
+  span:nth-child(3) { color: #3b82f6; }
+}
+.estadisticas-container {
+  background-color: #000;        // Fondo negro
+  color: white;                  // Texto blanco
+  padding: 2.5rem;               // Equivale a p-10
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;                   // Equivale a gap-10
+  text-align: center;
+  margin-top: -20;
+  align-items: center;
+  justify-content: space-around;
+
+  @media (min-width: 768px) {
+    flex-direction: row;        // Como md:flex-row
+  }
+
+  .estadistica-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .valor {
+      font-size: 2.25rem;       // Equivale a text-4xl
+      font-weight: bold;
+    }
+
+    .descripcion {
+      font-size: 0.875rem;      // Equivale a text-sm
+      margin-top: 0.25rem;      // Equivale a mt-1
+    }
+  }
+}
+
+// Versión responsive
+@media (max-width: 768px) {
+  .bottom-text {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-text {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+}
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity $transition-speed ease-in-out;
+    
+    &.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    
+    &.prev, &.next {
+      opacity: 0.3;
+      z-index: 1;
+    }
+  }
+  
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+  }
+  
+  .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $text-color;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+    
+    .slide-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .slide-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      animation: fadeInUp 0.8s ease-out 0.2s;
+      animation-fill-mode: both;
+    }
+  }
+  
+  .cta-button {
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out 0.4s;
+    animation-fill-mode: both;
+    
+    &:hover {
+      background: darken($primary-color, 10%);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+  }
+  
+  .carousel-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    
+    .control-btn {
+      background: rgba(255,255,255,0.3);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &:hover {
+        background: $primary-color;
+      }
+    }
+    
+    .carousel-pagination {
+      display: flex;
+      margin: 0 15px;
+      
+      .pagination-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &.active {
+          background: $primary-color;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+  /* Estilo para la franja */
+.franja {
+  background-color: #ef4444; /* Rojo vibrante */
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto de texto */
+.franja h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+}
+
+
+// Animaciones
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 60vh;
+    
+    .slide-content {
+      .slide-title {
+        font-size: 1.8rem;
+      }
+      
+      .slide-subtitle {
+        font-size: 1rem;
+      }
+    }
+  }
+}

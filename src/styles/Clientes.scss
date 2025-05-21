@@ -1,0 +1,113 @@
+.clientes-trompo {
+  padding: 4rem 0;
+  background-color: #f9f9f9;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 3.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    }
+  }
+
+  &__subtitle {
+    color: #666;
+    margin-bottom: 0rem;
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+
+  &__stage {
+    perspective: 1000px;
+    width: 100%;
+    height: 350px;
+    position: relative;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      height: 280px;
+      perspective: 800px;
+    }
+
+    @media (max-width: 480px) {
+      height: 220px;
+      perspective: 600px;
+    }
+  }
+
+  &__carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    margin: 0 auto;
+    will-change: transform; /* Optimización para animaciones */
+  }
+
+  &__item {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: 50%;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: -80px;
+    transform-origin: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transition: transform 0.5s ease;
+
+    @media (max-width: 768px) {
+      width: 130px;
+      height: 130px;
+      margin-left: -65px;
+      margin-top: -65px;
+    }
+
+    @media (max-width: 480px) {
+      width: 110px;
+      height: 110px;
+      margin-left: -55px;
+      margin-top: -55px;
+    }
+  }
+
+  &__logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) contrast(0.8);
+    opacity: 0.9;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, filter, opacity; /* Optimización */
+
+    &:hover {
+      filter: grayscale(0%) contrast(1);
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+}

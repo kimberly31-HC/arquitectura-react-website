@@ -1,0 +1,247 @@
+
+// Variables
+$primary-gradient: linear-gradient(135deg, #0073ffe7 0%, #d3d3ee 100%);
+$secondary-gradient: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
+$text-dark: #1f2937;
+$text-medium: #4b5563; 
+$text-light: #6b7280;
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// Estilos generales
+#servicios {
+  background-color: #f9fafb;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: $primary-gradient;
+    z-index: 1;
+  }
+}
+
+// Contenedor principal
+.container {
+   // padding-top: 40px !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+// Encabezado
+.text-center {
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+  
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: $text-dark;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.5px;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: $primary-gradient;
+      border-radius: 2px;
+    }
+  }
+  
+  .w-24 {
+    display: none; // Ocultamos el div original ya que usamos el pseudo-elemento
+  }
+}
+
+// Grid de servicios
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+// Tarjeta de servicio
+.service-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  transition: $transition;
+  position: relative;
+  z-index: 1;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-lg;
+    
+    .service-card-img {
+      transform: scale(1.05);
+    }
+    
+    &::after {
+      opacity: 1;
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #95c2f84d ;
+    opacity: 0;
+    z-index: -1;
+    transition: $transition;
+  }
+}
+
+// Contenedor de imagen
+.relative {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+// Imagen
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: $transition;
+}
+
+// Badge
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  border-radius: 50px;
+  z-index: 10;
+  box-shadow: $shadow-sm;
+  letter-spacing: 0.5px;
+  
+  &.bg-planos {
+    background: $primary-gradient;
+  }
+  
+  &.bg-red-500 {
+    background: $secondary-gradient;
+  }
+}
+
+// Contenido de la tarjeta
+.p-6 {
+  padding: 1.75rem;
+  
+  p {
+    color: $text-medium;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+// Lista de items
+.space-y-3 {
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    color: $text-medium;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    
+    svg {
+      color: #10b981;
+      margin-right: 0.75rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// Efecto shine al hover
+.service-card:hover .shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  transform: skewX(-25deg);
+  z-index: 5;
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  100% {
+    left: 150%;
+  }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  #servicios {
+    padding: 6rem 0;
+  }
+  
+  .text-center h2 {
+    font-size: 2.4rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  #servicios {
+    padding: 5rem 0;
+  }
+  
+  .text-center h2 {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-center h2 {
+    font-size: 1.8rem;
+  }
+  
+  .service-card {
+    max-width: 100%;
+  }
+}
