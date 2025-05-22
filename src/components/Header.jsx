@@ -22,6 +22,7 @@ export default function Header() {
       {/* Menú desktop */}
       <nav className="desktop-nav">
         <ul className="nav-list">
+          
           <motion.li className="nav-item" whileHover={{ scale: 1.05 }}>
             <Link to="/" className="nav-link">
               <span className="link-text">Inicio</span>
@@ -29,7 +30,7 @@ export default function Header() {
             </Link>
           </motion.li>
           <motion.li className="nav-item" whileHover={{ scale: 1.05 }}>
-            <Link to="/about" className="nav-link">
+            <Link to="/nosotros" className="nav-link">
               <span className="link-text">Nosotros</span>
               <span className="link-underline"></span>
             </Link>
@@ -43,6 +44,12 @@ export default function Header() {
           <motion.li className="nav-item" whileHover={{ scale: 1.05 }}>
             <Link to="/projects" className="nav-link">
               <span className="link-text">Proyectos</span>
+              <span className="link-underline"></span>
+            </Link>
+          </motion.li>
+          <motion.li className="nav-item" whileHover={{ scale: 1.05 }}>
+            <Link to="/contacto" className="nav-link">
+              <span className="link-text">Contactanos</span>
               <span className="link-underline"></span>
             </Link>
           </motion.li>

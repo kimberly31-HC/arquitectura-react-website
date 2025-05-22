@@ -5,6 +5,9 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ServicesPage from "./pages/Services";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Contacto from "./components/Contacto";
+import AboutPage from "./pages/AboutPage";
+
 // En App.jsx y otros componentes
 import { Link } from "react-router-dom";
 function App() {
@@ -16,6 +19,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/contacto" element={<Contacto />} />
+         <Route path="/nosotros" element={<AboutPage />} />
       </Routes>
       <Footer />
     </Router>
