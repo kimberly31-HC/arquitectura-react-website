@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaEnvelope, FaYoutube } from 'react-icons/fa';
+import logo from '../assets/img/logo.png'; // Usa la ruta relativa adecuada
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -133,11 +134,12 @@ const socialIcons = [
           {/* Brand column */}
           <div>
             <div style={styles.logoContainer}>
-              <img 
-            src="/src/assets/img/logo.png" // Ruta de la imagen
-            alt="Logo Planos Perú"
-            style={{ width: '50px', height: 'auto', marginRight: '0.75rem' }} // Estilos para la imagen
-          />
+             <img 
+              src={logo} 
+              alt="Logo Planos Perú"
+              style={{ width: '50px', height: 'auto', marginRight: '0.75rem' }} 
+            />
+
               <h3 style={styles.logoText}>
                 <span style={styles.logoPart1}>Planos</span>
                 <span style={styles.logoPart2}>Perú</span>

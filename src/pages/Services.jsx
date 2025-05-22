@@ -1,84 +1,88 @@
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
 import '../styles/Services.scss';
+import imagen2 from '../assets/img/inicio/imagen2.jpg';
+import nosotros from '../assets/img/inicio/nosotros.jpg';
+import nosotros2 from '../assets/img/inicio/nosotros2.jpg';
+import imagen5 from '../assets/img/inicio/imagen5.jpg';
 
 const ServicesSection = () => {
-  const services = [
-    {
-      id: 1,
-      title: "Registros Públicos",
-      description: "Asesoramos y brindamos el soporte para una adecuada inscripción de todas las propiedades de las personas naturales y jurídicas con sus respectivos expedientes.",
-      image: "/src/assets/img/inicio/imagen2.jpg",
-      badgeColor: "bg-planos",
-      items: [
-        "Prescripción adquisitiva",
-        "Saneamiento Catastral",
-        "Búsqueda Catastral",
-        "Declaración de Fábrica",
-        "Acumulación de lote",
-        "Reglamento interno y junta de propietarios",
-        "Rectificación de Área y Linderos",
-        "Independización",
-        "Soluciones a observaciones registrales",
-        "Inmatriculación"
-      ]
-    },
-    {
-      id: 2,
-      title: "Diseño",
-      description: "Ofrecemos servicios de diseño para diversos tipos de proyectos, asegurando calidad y eficiencia.",
-      image: "/src/assets/img/inicio/nosotros.jpg",
-      badgeColor: "bg-red-500",
-      items: [
-        "Planos de Arquitectura",
-        "Instalaciones Sanitarias",
-        "Instalaciones Eléctricas",
-        "Estructura de Cimientos",
-        "Estructura de Techo",
-        "Instalaciones de Gas Natural",
-        "Recorrido Virtual 3D",
-        "Cortes y Fachadas"
-      ]
-    },
-    {
-      id: 3,
-      title: "Municipalidad",
-      description: "Realizamos el armado de expedientes para ingreso en trámite a las distintas municipalidades de Lima y de todo el Perú.",
-      image: "/src/assets/img/inicio/nosotros2.jpg",
-      badgeColor: "bg-planos",
-      items: [
-        "Licencia de funcionamiento",
-        "Licencia para construir",
-        "Sub-División de lote",
-        "Planos en general",
-        "Habilidades urbanas",
-        "Declaración de fábrica",
-        "Expedientes técnicos para defensa civil",
-        "Conformidad de obra",
-        "Topografía",
-        "Tasaciones"
-      ]
-    },
-    {
-      id: 4,
-      title: "Proyectos",
-      description: "Realizamos proyectos de diversa índole, adaptándonos a las necesidades específicas de cada cliente.",
-      image: "/src/assets/img/inicio/imagen5.jpg",
-      badgeColor: "bg-red-500",
-      items: [
-        "Condominios",
-        "Viviendas",
-        "Plantas Comerciales",
-        "Colegios",
-        "Galerías",
-        "Proyecto de Planta de Tratamiento de Agua",
-        "Casa de Playa",
-        "Proyecto Integral de Irrigación",
-        "Estudio de Impacto Ambiental",
-        "Proyecto en general"
-      ]
-    }
-  ];
+ const services = [
+  {
+    id: 1,
+    title: "Registros Públicos",
+    description: "Asesoramos y brindamos el soporte para una adecuada inscripción de todas las propiedades de las personas naturales y jurídicas con sus respectivos expedientes.",
+    image: imagen2,
+    badgeColor: "bg-planos",
+    items: [
+      "Prescripción adquisitiva",
+      "Saneamiento Catastral",
+      "Búsqueda Catastral",
+      "Declaración de Fábrica",
+      "Acumulación de lote",
+      "Reglamento interno y junta de propietarios",
+      "Rectificación de Área y Linderos",
+      "Independización",
+      "Soluciones a observaciones registrales",
+      "Inmatriculación"
+    ]
+  },
+  {
+    id: 2,
+    title: "Diseño",
+    description: "Ofrecemos servicios de diseño para diversos tipos de proyectos, asegurando calidad y eficiencia.",
+    image: nosotros,
+    badgeColor: "bg-red-500",
+    items: [
+      "Planos de Arquitectura",
+      "Instalaciones Sanitarias",
+      "Instalaciones Eléctricas",
+      "Estructura de Cimientos",
+      "Estructura de Techo",
+      "Instalaciones de Gas Natural",
+      "Recorrido Virtual 3D",
+      "Cortes y Fachadas"
+    ]
+  },
+  {
+    id: 3,
+    title: "Municipalidad",
+    description: "Realizamos el armado de expedientes para ingreso en trámite a las distintas municipalidades de Lima y de todo el Perú.",
+    image: nosotros2,
+    badgeColor: "bg-planos",
+    items: [
+      "Licencia de funcionamiento",
+      "Licencia para construir",
+      "Sub-División de lote",
+      "Planos en general",
+      "Habilidades urbanas",
+      "Declaración de fábrica",
+      "Expedientes técnicos para defensa civil",
+      "Conformidad de obra",
+      "Topografía",
+      "Tasaciones"
+    ]
+  },
+  {
+    id: 4,
+    title: "Proyectos",
+    description: "Realizamos proyectos de diversa índole, adaptándonos a las necesidades específicas de cada cliente.",
+    image: imagen5,
+    badgeColor: "bg-red-500",
+    items: [
+      "Condominios",
+      "Viviendas",
+      "Plantas Comerciales",
+      "Colegios",
+      "Galerías",
+      "Proyecto de Planta de Tratamiento de Agua",
+      "Casa de Playa",
+      "Proyecto Integral de Irrigación",
+      "Estudio de Impacto Ambiental",
+      "Proyecto en general"
+    ]
+  }
+];
 
   return (
     <section className="bg-gray-50 py-16" id="servicios">

@@ -1,15 +1,23 @@
 import { useEffect, useRef } from 'react';
 import '../styles/Clientes.scss'; // Archivo SCSS
+import cliente1 from '../assets/img/clientes/cliente1.jpg';
+import cliente2 from '../assets/img/clientes/cliente2.png';
+import cliente3 from '../assets/img/clientes/cliente3.jpg';
+import cliente4 from '../assets/img/clientes/cliente4.jpg';
+import cliente5 from '../assets/img/clientes/cliente6.jpg';
+import cliente6 from '../assets/img/clientes/cliente7.png';
 
 const ClientesTrompo = () => {
-  const clientes = [
-    { id: 1, logo: '/src/assets/img/clientes/cliente1.jpg', alt: 'Cliente 1' },
-    { id: 2, logo: '/src/assets/img/clientes/cliente2.png', alt: 'Cliente 2' },
-    { id: 3, logo: '/src/assets/img/clientes/cliente3.jpg', alt: 'Cliente 3' },
-    { id: 4, logo: '/src/assets/img/clientes/cliente4.jpg', alt: 'Cliente 4' },
-    { id: 5, logo: '/src/assets/img/clientes/cliente6.jpg', alt: 'Cliente 5' },
-    { id: 6, logo: '/src/assets/img/clientes/cliente7.png', alt: 'Cliente 6' },
-  ];
+
+const clientes = [
+  { id: 1, logo: cliente1, alt: 'Cliente 1' },
+  { id: 2, logo: cliente2, alt: 'Cliente 2' },
+  { id: 3, logo: cliente3, alt: 'Cliente 3' },
+  { id: 4, logo: cliente4, alt: 'Cliente 4' },
+  { id: 5, logo: cliente5, alt: 'Cliente 5' },
+  { id: 6, logo: cliente6, alt: 'Cliente 6' },
+];
+
 
   const carruselRef = useRef(null);
   const animationRef = useRef(null);
