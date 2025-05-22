@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import '../styles/HeroCarousel.scss'; // Importamos los estilos SCSS
-
+import s from '../assets/img/inicio/s.jpeg';
+import imagen2 from '../assets/img/inicio/imagen2.jpg';
+import carrusel3 from '../assets/img/inicio/carrusel3.jpg';
 export default function HeroCarousel() {
   const carouselRef = useRef(null);
   const intervalRef = useRef(null);
@@ -8,18 +10,18 @@ export default function HeroCarousel() {
 
   const slides = [
     {
-      img: "/src/assets/img/inicio/s.jpeg",
+      img: s,
       title: "Asesoría Legal - Saneamiento de Propiedad",
       subtitle: "Soluciones legales integrales para tu propiedad"
     },
 
     {
-      img: "/src/assets/img/inicio/imagen2.jpg",
+      img: imagen2,
       title: "Trámites y Expedientes Sunarp - Registros Públicos",
       subtitle: "Gestión eficiente de todos tus trámites registrales"
     },
     {
-      img: "/src/assets/img/inicio/carrusel3.jpg",
+      img: carrusel3,
       title: "Asesoría Profesional",
       subtitle: "Expertos a tu disposición para cualquier consulta legal"
     }
