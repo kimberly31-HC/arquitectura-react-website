@@ -73,36 +73,7 @@ const Contacto = () => {
           ))}
         </div>
 
-        <div className="formulario-container">
-          <h2>Envíanos un mensaje</h2>
-          <form className="contacto-form">
-            <div className="form-group">
-              <input type="text" placeholder="Nombre completo" required />
-            </div>
-            
-            <div className="form-group">
-              <input type="email" placeholder="Correo electrónico" required />
-            </div>
-            
-            <div className="form-group">
-              <input type="tel" placeholder="Teléfono" />
-            </div>
-            
-            <div className="form-group">
-              <select required>
-                <option value="">Seleccione una sede</option>
-                <option value="comas">Oficina Principal Comas</option>
-                <option value="sjm">Sede San Juan de Miraflores</option>
-              </select>
-            </div>
-            
-            <div className="form-group">
-              <textarea placeholder="Tu mensaje..." rows="5" required></textarea>
-            </div>
-            
-            <button type="submit" className="submit-btn">Enviar Mensaje</button>
-          </form>
-        </div>
+       
       </div>
     </section>
   );

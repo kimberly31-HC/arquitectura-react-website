@@ -36,7 +36,7 @@ export default function Header() {
             </Link>
           </motion.li>
           <motion.li className="nav-item" whileHover={{ scale: 1.05 }}>
-            <Link to="/services" className="nav-link">
+            <Link to="/servicios" className="nav-link">
               <span className="link-text">Servicios</span>
               <span className="link-underline"></span>
             </Link>

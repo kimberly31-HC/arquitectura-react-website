@@ -1,0 +1,93 @@
+.service-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+margin-top: 130px;
+  .service-card {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    border: 2px solid #3a7bd5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(58, 123, 213, 0.2);
+    background-color: white;
+    
+    .service-content {
+      flex: 1;
+      padding: 2rem;
+      
+      h1 {
+        color: #2a5ea5;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+      
+      .description {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      
+      h3 {
+        color: #2a5ea5;
+        margin: 1.5rem 0 1rem;
+        font-size: 1.2rem;
+      }
+      
+      .steps-list {
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+        
+        li {
+          margin-bottom: 0.5rem;
+          color: #444;
+          line-height: 1.5;
+        }
+      }
+      
+      .note {
+        color: #666;
+        font-style: italic;
+        padding: 0.8rem;
+        background-color: #f8fafc;
+        border-left: 3px solid #3a7bd5;
+      }
+    }
+    
+    .service-image {
+      flex: 0 0 300px;
+      background-color: #f0f7ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .service-detail-container {
+    padding: 1rem;
+    
+    .service-card {
+      flex-direction: column;
+      
+      .service-image {
+        flex: 0 0 auto;
+        order: -1;
+        padding: 1.5rem;
+        background-color: transparent;
+      }
+    }
+  }
+}

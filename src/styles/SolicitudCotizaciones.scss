@@ -1,0 +1,223 @@
+// Variables
+$primary-color: #4361ee;
+$secondary-color: #3a0ca3;
+$accent-color: #4895ef;
+$text-color: #2b2d42;
+$light-bg: #f8f9fa;
+
+.cotizaciones-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, $light-bg, white);
+  position: relative;
+  overflow: hidden;
+  
+ &::before {
+  /* ... tus estilos base ... */
+  background: 
+    linear-gradient(135deg, $primary-color 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, $primary-color 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, $accent-color 25%, transparent 25%),
+    linear-gradient(45deg, $accent-color 25%, transparent 25%);
+  background-size: 20px 20px;
+}
+}
+
+.cotizaciones-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cotizaciones-header {
+  margin-bottom: 2.5rem;
+}
+
+.cotizaciones-title {
+  font-size: 2.2rem;
+  color: $text-color;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $accent-color);
+    border-radius: 2px;
+  }
+}
+
+.divider {
+  width: 100px;
+  height: 2px;
+  background: #ddd;
+  margin: 0 auto 2rem;
+}
+
+.contacto-info {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.contacto-icon {
+  font-size: 1.5rem;
+  color: $primary-color;
+}
+
+.contacto-text {
+  font-size: 1.2rem;
+  color: $text-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.metodos-pago {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.metodos-title {
+  font-size: 1.3rem;
+  color: $text-color;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: $accent-color;
+    border-radius: 2px;
+  }
+}
+
+.tarjetas-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tarjeta-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.tarjeta-img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+  
+  .tarjeta-item:hover & {
+    filter: grayscale(0%);
+  }
+}
+
+
+.transferencias {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.transferencia-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: $light-bg;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  min-width: 250px;
+}
+
+.transferencia-icon {
+  font-size: 1.8rem;
+  color: $primary-color;
+  flex-shrink: 0;
+}
+
+.cuenta-numero {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: darken($text-color, 10%);
+  font-weight: 600;
+  margin-top: 0.3rem;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .cotizaciones-title {
+    font-size: 1.8rem;
+  }
+  
+  .contacto-info {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .tarjetas-container {
+    gap: 1rem;
+  }
+  
+  .transferencias {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .transferencia-item {
+    width: 100%;
+  }
+}

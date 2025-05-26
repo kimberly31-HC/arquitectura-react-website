@@ -10,6 +10,10 @@ import WhatsAppButton from '../components/Whatsapp';
 import Clientes from '../components/Clientes';
 import Contacto  from '../components/Contacto';
 import TrabajaConNosotros  from '../components/TrabajaConNosotros';
+import FaqSection from '../components/FaqSection';
+import MapaProyectos from '../components/MapaProyectos';
+import SolicitudCotizaciones from '../components/SolicitudCotizaciones';
+import SocialFloat from '../components/SocialFloat';
 
 const Home = () => {
     const { ref, inView } = useInView({ triggerOnce: false });
@@ -52,14 +56,20 @@ const Home = () => {
       <div className="bottom-text">
         <span>PLANOS</span>, <span>PROYECTOS</span> Y <span>EXPEDIENTES</span>
       </div>
-      
+
       {/* Contenido adicional puede ir aquí */}
       <About />
-      
+                  <SocialFloat />
+
       <Services />
       <Clientes />
        <Contacto />
+             <FaqSection />
+  <MapaProyectos/>
 <TrabajaConNosotros />
+      
+<SolicitudCotizaciones />
+
       <Chatbot />
       {/* Botón de WhatsApp con efecto flotante */}
               <WhatsAppButton onClick={handleWhatsAppClick} />
