@@ -4,9 +4,10 @@ import HeroCarousel from "../components/Carrusel";
 import About from "./About";
 import Services from "./Services";
 import Chatbot from "../components/Chatbot"; 
+import WhatsAppButton from '../components/Whatsapp'; 
+import Cotizacion from '../components/ButtonCotizacion';
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import WhatsAppButton from '../components/Whatsapp'; 
 import Clientes from '../components/Clientes';
 import Contacto  from '../components/Contacto';
 import TrabajaConNosotros  from '../components/TrabajaConNosotros';
@@ -14,7 +15,19 @@ import FaqSection from '../components/FaqSection';
 import MapaProyectos from '../components/MapaProyectos';
 import SolicitudCotizaciones from '../components/SolicitudCotizaciones';
 import SocialFloat from '../components/SocialFloat';
+import NotificacionPromo from '../components/NotificacionPromo';
+const BotonFormulario = () => {
+  const navigate = useNavigate();
 
+  return (
+    <button
+      onClick={() => navigate('/formulario')}
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700"
+    >
+      Ir al Formulario
+    </button>
+  );
+};
 const Home = () => {
     const { ref, inView } = useInView({ triggerOnce: false });
 
@@ -25,6 +38,7 @@ const Home = () => {
   };
 
   return (
+    
     <div className="home-container">
       <HeroCarousel />
       
@@ -32,8 +46,8 @@ const Home = () => {
      <div className="estadisticas-container" ref={ref}>
       <div className="estadistica-item">
         <span className="valor">
-          {inView && (
-            <CountUp end={500000} duration={3} separator=" " />
+          + {inView && (
+            <CountUp end={5000000} duration={3} separator=" " />
           )}
         </span>
         <span className="descripcion">m² de Área construida</span>
@@ -41,14 +55,14 @@ const Home = () => {
 
       <div className="estadistica-item">
         <span className="valor">
-          {inView && <CountUp end={56} duration={3} />}
+          + {inView && <CountUp end={56} duration={3} />}
         </span>
         <span className="descripcion">Clientes satisfechos</span>
       </div>
 
       <div className="estadistica-item">
         <span className="valor">
-          {inView && <CountUp end={10} duration={3} />}
+          + {inView && <CountUp end={29} duration={3} />}
         </span>
         <span className="descripcion">Años de experiencia</span>
       </div>
@@ -59,7 +73,6 @@ const Home = () => {
 
       {/* Contenido adicional puede ir aquí */}
       <About />
-                  <SocialFloat />
 
       <Services />
       <Clientes />
@@ -69,10 +82,13 @@ const Home = () => {
 <TrabajaConNosotros />
       
 <SolicitudCotizaciones />
+      <NotificacionPromo />
 
       <Chatbot />
       {/* Botón de WhatsApp con efecto flotante */}
               <WhatsAppButton onClick={handleWhatsAppClick} />
+                    <Cotizacion />
+
     </div>
   );
 };

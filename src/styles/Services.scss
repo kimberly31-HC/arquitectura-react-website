@@ -71,6 +71,15 @@
       color: #4CAF50;
     }
   }
+  .item-link {
+  text-decoration: none; // 👈 Elimina el subrayado
+  color: inherit;         // 👈 Mantiene el color del texto actual
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; // Espacio entre el ícono y el texto
+}
+
 }
 
 .carousel-control {

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaCheckCircle, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import '../styles/Services.scss';
+import { Link } from 'react-router-dom';
 
 // Importa tus imágenes
 import imagen2 from '../assets/img/inicio/imagen2.jpg';
@@ -79,9 +80,9 @@ const Servicios = () => {
       items: [
         "Licencia de funcionamiento",
         "Licencia para construir",
-        "Sub-División de lote",
+        "Subdivisión de lote",
         "Planos en general",
-        "Habilidades urbanas",
+        "Habilitaciones urbanas",
         "Declaración de fábrica",
         "Expedientes técnicos para defensa civil",
         "Conformidad de obra",
@@ -117,7 +118,16 @@ const Servicios = () => {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? allServices.length - 1 : prev - 1));
   };
-
+const slugify = (text) =>
+    text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
   return (
     <motion.div 
       initial="hidden"
@@ -158,15 +168,17 @@ const Servicios = () => {
             <div className="servicio-info">
               <h2>{allServices[currentSlide].title}</h2>
               <p>{allServices[currentSlide].description}</p>
-              <ul className="benefits-list">
+               <ul className="benefits-list">
                 {allServices[currentSlide].items.map((item, index) => (
                   <motion.li 
                     key={index}
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
-                    <FaCheckCircle className="check-icon" />
-                    {item}
+<Link to={`/${slugify(allServices[currentSlide].title)}/${slugify(item)}`} className="item-link">
+                      <FaCheckCircle className="check-icon" />
+                      {item}
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

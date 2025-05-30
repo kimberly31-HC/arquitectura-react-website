@@ -24,7 +24,6 @@ body {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   position: fixed;
   width: 100%;
-  top: 0;
   z-index: 1000;
 
   .logo {
@@ -54,10 +53,17 @@ body {
 }
 
 .logo-text {
-  display: flex;
-  flex-direction: column;
-  margin-left: 1rem;
+  display: none; // Oculto por defecto (móvil)
+
+  @media (min-width: 970px) {
+    display: flex; 
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+  
+  
 }
+
 
 .logo-title {
   font-size: 1.5rem;

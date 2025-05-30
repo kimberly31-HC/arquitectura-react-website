@@ -1,0 +1,382 @@
+// Variables
+$primary-color: #2c3e50;
+$secondary-color: #3498db;
+$accent-color: #e74c3c;
+$light-gray: #ecf0f1;
+$dark-gray: #7f8c8d;
+$white: #ffffff;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// Estilos generales
+.consulta-container {
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.consulta-header {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  margin-bottom: 6rem;
+  color: white;
+
+  .banner-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    top: 60px; // Se puede ajustar según el espacio de tu página
+    
+    .banner-image-wrapper {
+      position: relative;
+      height: 450px; // Ajusta la altura de la imagen del banner
+      width: 100%;
+      
+      .banner-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover; // Asegura que la imagen cubra el área sin distorsionarse
+      }
+      
+      .banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); // Ajusta la opacidad de la capa superpuesta
+      }
+    }
+    
+    .header-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      z-index: 2;
+      
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); // Agrega sombra al texto
+      }
+      
+      p {
+        font-size: 1.2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); // Sombra en el párrafo
+      }
+    }
+    
+    .wave-shape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px; // Altura de la onda, puedes ajustarlo
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+
+// Formulario de búsqueda
+.consulta-form {
+   padding: 2rem;
+  max-width: 800px;  // El ancho máximo sigue siendo el mismo
+  width: 100%;        // Asegura que el formulario ocupe el 100% del contenedor disponible
+  display: flex;
+  gap: 1rem;
+  margin: 0 auto;     // Elimina el margin-left y centra automáticamente
+  flex-wrap: wrap;
+  justify-content: center; // Centra los elementos en el eje horizontal
+  align-items: center; // Centra los elementos en el eje vertical
+  background-color: #e4f2fc;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  .form-group {
+    min-width: 200px;
+  }
+  
+  .form-input, .form-select {
+    width: 50%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    
+    &:focus {
+      outline: none;
+      border-color: $secondary-color;
+      box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+    }
+  }
+  
+  .form-button {
+    background-color: $secondary-color;
+    color: $white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    align-self: flex-end;
+    
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}
+
+// Mensajes de error
+.error-message {
+  background-color: lighten($accent-color, 35%);
+  color: darken($accent-color, 20%);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  border-left: 4px solid $accent-color;
+}
+
+// Resultados
+.resultados-container {
+  margin-top: 2rem;
+  max-width: 1200px;
+  width: 100%;        // Asegura que el contenedor ocupe el 100% del espacio disponible
+  margin-left: auto;  // Centra automáticamente en el eje horizontal
+  margin-right: auto; // Centra automáticamente en el eje horizontal
+  margin-bottom: 2rem;
+}
+
+
+.resultados-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+// Tarjeta de resultados
+.seguimiento-card {
+  background: $white;
+  border-radius: 8px;
+  box-shadow: $shadow;
+  overflow: hidden;
+  
+  .card-header {
+    background-color: #bdd9f5;
+    color: $white;
+    padding: 1rem 1.5rem;
+    
+    h3 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+// Tarjeta de resultados
+.resultados-card {
+  background: $white;
+  border-radius: 8px;
+  box-shadow: $shadow;
+  overflow: hidden;
+max-height: 300px;
+  .card-header {
+    background-color: #adbcca;
+    color: $white;
+    padding: 1rem 1.5rem;
+    
+    h3 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+// Estilos para la información del trámite
+.info-item {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  
+  .info-label {
+    font-weight: 600;
+    color: $primary-color;
+  }
+  
+  .info-value {
+    text-align: right;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: $secondary-color;
+  }
+}
+
+// Controles de la tabla
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  .search-box {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    
+    .search-input {
+      width: 100%;
+      padding: 0.5rem 2rem 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      
+      &:focus {
+        outline: none;
+        border-color: $secondary-color;
+      }
+    }
+    
+    .search-icon {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $dark-gray;
+    }
+  }
+  
+  .rows-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    label {
+      color: $white;
+      font-size: 0.9rem;
+    }
+    
+    .rows-select {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      background: $white;
+    }
+  }
+}
+
+// Tabla de seguimiento
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.seguimiento-table {
+  width: 100%;
+  border-collapse: collapse;
+  
+  thead {
+    background-color: lighten($primary-color, 60%);
+    
+    th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: $primary-color;
+      border-bottom: 2px solid lighten($primary-color, 50%);
+    }
+  }
+  
+  tbody {
+    tr {
+      border-bottom: 1px solid #eee;
+      
+      &:nth-child(even) {
+        background-color: $light-gray;
+      }
+      
+      &:hover {
+        background-color: lighten($secondary-color, 40%);
+      }
+      
+      td {
+        padding: 0.75rem 1rem;
+      }
+    }
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 2rem;
+    color: $dark-gray;
+    font-style: italic;
+  }
+}
+
+// Paginación
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+  
+  .pagination-button {
+    background-color: $secondary-color;
+    color: $white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    &:hover:not(:disabled) {
+      background-color: darken($secondary-color, 10%);
+    }
+    
+    &:disabled {
+      background-color: lighten($secondary-color, 20%);
+      cursor: not-allowed;
+    }
+  }
+  
+  .page-info {
+    color: $dark-gray;
+    font-size: 0.9rem;
+  }
+}

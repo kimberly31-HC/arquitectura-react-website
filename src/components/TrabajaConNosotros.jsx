@@ -39,12 +39,39 @@ const TrabajaConNosotros = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí puedes agregar la lógica para enviar el formulario
-    console.log('Formulario enviado:', formData);
-    alert('¡Postulación enviada con éxito! Nos comunicaremos contigo pronto.');
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  const formDataToSend = new FormData();
+  for (const key in formData) {
+    formDataToSend.append(key, formData[key]);
+  }
+
+  try {
+    const response = await fetch('https://planosperu.com.pe/intranet/api/postular/', {
+      method: 'POST',
+      body: formDataToSend
+    });
+
+    if (response.ok) {
+      alert('¡Postulación enviada con éxito! Nos comunicaremos contigo pronto.');
+      setFormData({
+        nombre: '',
+        apellido: '',
+        carrera: '',
+        fechaNacimiento: '',
+        celular: '',
+        email: '',
+        distrito: '',
+        cv: null
+      });
+    } else {
+      alert('Hubo un error al enviar tu postulación.');
+    }
+  } catch (error) {
+    console.error(error);
+    alert('Error de red. Inténtalo más tarde.');
+  }
+};
 
   return (
     <section className="trabaja-con-nosotros">
@@ -52,10 +79,11 @@ const TrabajaConNosotros = () => {
         <div className="grid-layout">
           {/* Sección de información */}
           <div className="info-section">
-            <h1>TRABAJA CON NOSOTROS</h1>
+            <h1>BOLSA DE TRABAJO</h1>
             <p className="intro-text">
-              ¿Eres curioso, con ganas de aprender y trabajar en equipo?<br />
-              Nos encontramos en una búsqueda constante de personas talentosas, nuestro proceso de reclutamiento es sencillo.
+                  ¿Listo para un nuevo reto? 💼<br />
+ Si eres curioso, trabajador y te encanta aprender, este es tu lugar.
+    Nuestro proceso de reclutamiento es simple y directo. <strong>¡Solo tienes que dar el primer paso!</strong>
             </p>
 
             <div className="beneficios-section">
@@ -81,7 +109,7 @@ const TrabajaConNosotros = () => {
             <div className="instrucciones">
               <p>
                 Envía tu CV al correo <strong>gestion@hotmail.com</strong> con el asunto 
-                <strong>"VAMOS A TRABAJAR - cargo al que postulas*"</strong>
+                <strong> "Nombre de la carrera que desempeña" </strong>
               </p>
               <p className="destacado">
                 LISTO! Nuestra área de recursos humanos se comunicará contigo para una entrevista.<br />
@@ -102,7 +130,7 @@ const TrabajaConNosotros = () => {
 
           {/* Sección del formulario */}
           <div className="form-section">
-            <div className="form-container">
+            <div className="form-container1">
               <h2>¡POSTULA AHORA!</h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">

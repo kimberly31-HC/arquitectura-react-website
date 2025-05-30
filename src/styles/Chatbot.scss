@@ -1,7 +1,7 @@
 .chatbot-container {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+      bottom: 6.8rem;
+    right: 17px;
   z-index: 1000;
   transition: all 0.3s ease;
 
@@ -17,6 +17,7 @@
       transform: scale(1.1);
     }
   }
+  
 }
 
 .chatbot-toggle {
@@ -33,10 +34,27 @@
   
   .icon {
     font-size: 28px;
+        margin-right: 5px;
   }
 
   &:hover {
     transform: scale(1.1);
+  }
+   .pulse-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2e5cdb, #1e3a8a);
+    border-radius: 50px;
+    z-index: -1;
+    animation: pulse 2s infinite;
+  }
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px #1e3a8a;
   }
 }
 
@@ -180,6 +198,7 @@
     
     .icon {
       font-size: 16px;
+      margin-right: 5px;
     }
   }
 }
@@ -236,5 +255,125 @@
     width: 50px;
     height: 50px;
   }
+}
+
+// Botón de WhatsApp
+.whatsapp-btn {
+    position: fixed;
+      bottom: 195px;  /* Espacio desde la parte inferior */
+  right: 17px;    /* Espacio desde la parte derecha */
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border: none;
+    padding: 1rem 1rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    z-index: 100;
+    transition: none;
+  
+  .whatsapp-icon {
+    font-size: 1.8rem;
+  }
+  
+  span {
+    font-size: 1rem;
+  }
+  
+  .pulse-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    border-radius: 50px;
+    z-index: -1;
+    animation: pulse 2s infinite;
+  }
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+  }
+}
+
+/* Contenedor del botón flotante */
+.boton-flotante-container {
+  position: fixed;
+  bottom: 30px;
+  right: 17px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;  /* Para que el tooltip y el botón estén alineados */
+  align-items: flex-end;   /* Alineación a la derecha */
+}
+
+/* Estilo del botón flotante */
+.boton-flotante {
+  background-color: #3b82f6; /* Color de fondo */
+  color: white;
+  border: none;
+  padding: 15px 20px;  /* Tamaño del botón */
+  border-radius: 50%;  /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra para efecto flotante */
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transición suave */
+  z-index: 1000; /* Asegura que esté encima de otros elementos */
+  position: relative; /* Necesario para posicionar el efecto de pulsación */
+}
+
+/* Efecto de pulsación */
+.pulse-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgb(75, 117, 233), #3b82f6);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+/* Tooltip siempre visible */
+.tooltip {
+  position: absolute;
+  bottom: 15px;    /* El tooltip se posiciona justo al nivel del botón */
+  right: 100%;  /* El tooltip aparece a la izquierda del botón */
+  margin-right: 10px;  /* Espacio entre el botón y el tooltip */
+  background-color: white;  /* Fondo blanco */
+  color: #2157ad;  /* Texto oscuro para contraste */
+  padding: 10px 20px; /* Padding para el tooltip */
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateX(-10px);  /* Desplazamiento hacia la izquierda */
+  white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
+  z-index: 999; /* Asegura que el tooltip esté encima del contenido pero debajo del botón */
+}
+
+/* Efecto de "burbuja de chat" para el tooltip */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px;  /* Coloca la punta del "triángulo" del lado derecho */
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ffffff; /* Color del fondo del tooltip */
+  transform: translateY(-50%); /* Centra el triángulo verticalmente */
+}
+
+/* Efecto de hover para el botón (si se necesita) */
+.boton-flotante:hover {
+  background-color: #2563eb; /* Color al pasar el ratón */
+  transform: translateY(-5px); /* Efecto de movimiento hacia arriba */
 }
 

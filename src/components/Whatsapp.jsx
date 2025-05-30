@@ -2,7 +2,7 @@
 import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import "../styles/projects-page.scss"; // Archivo de estilos específico
+import "../styles/Chatbot.scss"; // Archivo de estilos específico
 
 const WhatsAppButton = ({ onClick }) => {
     

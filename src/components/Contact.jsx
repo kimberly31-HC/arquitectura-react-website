@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
+import Chatbot from "../components/Chatbot"; 
+import WhatsAppButton from '../components/Whatsapp'; 
+import Cotizacion from '../components/ButtonCotizacion';
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -32,7 +34,11 @@ const Contact = () => {
       setTimeout(() => setSubmitMessage(''), 5000);
     }, 1500);
   };
-
+ const handleWhatsAppClick = () => {
+    const phoneNumber = '51962303092';
+    const message = 'Hola, quiero información sobre el servicio: ';
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
   return (
     <section id="contacto" ref={ref} className="py-20 bg-blue-800 text-white">
       <div className="container">
@@ -141,6 +147,10 @@ const Contact = () => {
             </form>
           </motion.div>
         </motion.div>
+                    <Chatbot />
+                    {/* Botón de WhatsApp con efecto flotante */}
+                            <WhatsAppButton onClick={handleWhatsAppClick} />
+                                  <Cotizacion />
       </div>
     </section>
   );

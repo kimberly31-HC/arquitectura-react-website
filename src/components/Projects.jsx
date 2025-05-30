@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaExpand, FaWhatsapp, FaSearchPlus } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { RiCloseLine } from 'react-icons/ri';
-import WhatsAppButton from './Whatsapp'; 
 import Chatbot from "../components/Chatbot"; 
+import WhatsAppButton from '../components/Whatsapp'; 
+import Cotizacion from '../components/ButtonCotizacion';
 // Casas
 import c1 from '../assets/img/proyectos/c1.jpg';
 import c2 from '../assets/img/proyectos/c2.png';
@@ -210,10 +211,10 @@ const Projects = () => {
             ))}
           </AnimatePresence>
         </div>
- <Chatbot />
-        {/* Botón de WhatsApp con efecto flotante */}
-              <WhatsAppButton onClick={handleWhatsAppClick} />
-
+       <Chatbot />
+            {/* Botón de WhatsApp con efecto flotante */}
+                    <WhatsAppButton onClick={handleWhatsAppClick} />
+                          <Cotizacion />
       </div>
 
       {/* Lightbox para vista detallada */}
@@ -268,6 +269,7 @@ const Projects = () => {
         )}
       </AnimatePresence>
     </section>
+    
   );
 };
 

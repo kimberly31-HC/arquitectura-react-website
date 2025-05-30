@@ -145,6 +145,8 @@ const Chatbot = () => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <i className="icon">💬</i>
+              <div className="pulse-effect"></div>
+
       </div>
 
       <div className="chatbot-window">

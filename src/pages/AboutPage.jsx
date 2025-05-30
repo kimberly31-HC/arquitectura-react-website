@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { FaBullseye, FaEye, FaUsers } from 'react-icons/fa';
 import '../styles/AboutPage.scss';
-
+import Chatbot from "../components/Chatbot"; 
+import WhatsAppButton from '../components/Whatsapp'; 
+import Cotizacion from '../components/ButtonCotizacion';
 const About = () => {
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -19,7 +21,11 @@ const About = () => {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 }
   };
-
+ const handleWhatsAppClick = () => {
+    const phoneNumber = '51962303092';
+    const message = 'Hola, quiero información sobre el servicio: ';
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
   return (
     <div className="about-page">
       {/* Banner full-width con imagen de fondo y ondas */}
@@ -121,7 +127,12 @@ const About = () => {
           </motion.section>
         </div>
       </motion.div>
+            <Chatbot />
+            {/* Botón de WhatsApp con efecto flotante */}
+                    <WhatsAppButton onClick={handleWhatsAppClick} />
+                          <Cotizacion />
     </div>
+    
   );
 };
 

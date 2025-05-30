@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 import { FaFileAlt, FaHome, FaBalanceScale, FaCity, FaHardHat, FaBuilding } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import '../styles/ServicesPage.scss';
-
+import Chatbot from "../components/Chatbot"; 
+import WhatsAppButton from '../components/Whatsapp'; 
+import Cotizacion from '../components/ButtonCotizacion';
 const Servicios = () => {
   const navigate = useNavigate();
   
@@ -33,14 +35,14 @@ const Servicios = () => {
       title: "Registros Públicos",
       icon: <FaFileAlt className="area-icon" />,
       color: "bg-blue-600",
-      path: "/registros"
+      path: "/registros-publicos"
     },
     {
       id: 2,
       title: "Diseño",
       icon: <FaHome className="area-icon" />,
       color: "bg-green-600",
-      path: "/disenio"
+      path: "/diseno"
     },
     {
       id: 3,
@@ -61,7 +63,11 @@ const Servicios = () => {
   const handleAreaClick = (path) => {
     navigate(path);
   };
-
+const handleWhatsAppClick = () => {
+    const phoneNumber = '51962303092';
+    const message = 'Hola, quiero información sobre el servicio: ';
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
   return (
     <motion.div 
       initial="hidden"
@@ -92,7 +98,7 @@ const Servicios = () => {
       
       <section className="areas-section py-16">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {areas.map((area, index) => (
               <motion.div
                 key={area.id}
@@ -120,6 +126,10 @@ const Servicios = () => {
           </div>
         </div>
       </section>
+       <Chatbot />
+            {/* Botón de WhatsApp con efecto flotante */}
+                    <WhatsAppButton onClick={handleWhatsAppClick} />
+                          <Cotizacion />
     </motion.div>
   );
 };

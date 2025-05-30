@@ -1,0 +1,258 @@
+// Variables de color
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$accent-color: #e74c3c;
+$light-color: #ecf0f1;
+$dark-color: #34495e;
+$success-color: #2ecc71;
+
+// Mixins
+@mixin transition($property: all, $duration: 0.3s, $ease: ease-in-out) {
+  transition: $property $duration $ease;
+}
+
+@mixin box-shadow($x: 0, $y: 4px, $blur: 6px, $color: rgba(0, 0, 0, 0.1)) {
+  box-shadow: $x $y $blur $color;
+}
+.form-page-container{
+  background: linear-gradient(135deg, $light-color, darken($light-color, 5%));
+}
+.css-13cymwt-control {
+ border-style: none !important;
+}
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 500px;
+    max-height: 800px;
+    overflow: hidden;
+    
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      
+      .hero-content {
+        max-width: 800px;
+        padding: 0 2rem;
+        
+        h1 {
+          font-size: 3.5rem;
+          margin-bottom: 1rem;
+          font-weight: 700;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+          
+          @media (max-width: 768px) {
+            font-size: 2.5rem;
+          }
+        }
+        
+        p {
+          font-size: 1.8rem;
+          opacity: 0.9;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+          
+          @media (max-width: 768px) {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+    
+    .wave-divider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+      
+      svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 100px;
+        
+        @media (max-width: 768px) {
+          height: 60px;
+        }
+        
+        .shape-fill {
+          fill: #ffffff;
+        }
+      }
+    }
+  }
+  
+// Estilos generales
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $light-color, darken($light-color, 5%));
+  padding: 2rem;
+  margin-top:0px;
+}
+
+.project-form {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px;
+  padding: 2.5rem;
+  @include box-shadow(0, 10px, 30px, rgba(0, 0, 0, 0.1));
+  
+  .form-title {
+    color: $secondary-color;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  
+  .form-section {
+    margin-bottom: 1.5rem;
+    
+    .section-title {
+      color: $primary-color;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid lighten($primary-color, 40%);
+    }
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+    
+    &.full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: $dark-color;
+      font-weight: 500;
+      
+      &:after {
+        content: '*';
+        color: $accent-color;
+        margin-left: 0.2rem;
+        opacity: 0;
+        @include transition;
+      }
+      
+      &.required:after {
+        opacity: 1;
+      }
+    }
+    
+    .form-input {
+      height: 55px;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid lighten($dark-color, 50%);
+      border-radius: 8px;
+      font-size: 1rem;
+      @include transition;
+      @include box-shadow(0, 2px, 4px, rgba(0, 0, 0, 0.05));
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        @include box-shadow(0, 2px, 8px, rgba($primary-color, 0.2));
+      }
+      
+      &::placeholder {
+        color: lighten($dark-color, 40%);
+      }
+    }
+    .css-13cymwt-control{
+      margin-top:-6px !important
+    }
+    .css-16xfy0z-control{
+     margin-top:-6px !important;
+      background-color: white !important;
+      border-style: none ! important;
+    }
+    textarea.form-input {
+      min-height: 120px;
+      resize: vertical;
+    }
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    
+    .submit-button {
+      background: $primary-color;
+      color: white;
+      border: none;
+      padding: 0.8rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      @include transition;
+      @include box-shadow(0, 4px, 8px, rgba($primary-color, 0.3));
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      
+      &:hover {
+        background: darken($primary-color, 10%);
+        transform: translateY(-2px);
+        @include box-shadow(0, 6px, 12px, rgba($primary-color, 0.4));
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Efectos adicionales
+@media (max-width: 768px) {
+  .project-form {
+    padding: 1.5rem;
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

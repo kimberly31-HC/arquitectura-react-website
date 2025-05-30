@@ -321,12 +321,16 @@ $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 // Grid de servicios
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
-
 // Tarjeta de servicio
 .service-card {
   background: white;
@@ -467,9 +471,10 @@ $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-size: 2.4rem;
   }
   
-  .grid {
+  .grid1 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
+
 }
 
 @media (max-width: 768px) {
@@ -481,7 +486,10 @@ $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-size: 2rem;
   }
   
-  .grid {
+  .grid1 {
+    gap: 1.5rem;
+  }
+  .grid{
     gap: 1.5rem;
   }
 }
@@ -501,13 +509,16 @@ $transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: #f8f9fa;  /* Fondo suave para distinguir la sección */
 }
 
-.grid {
+.grid1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);  /* Dos columnas */
   grid-template-rows: repeat(2, 1fr);  /* Dos filas */
   gap: 2rem;  /* Espacio entre las tarjetas */
 }
-
+.grid {
+  display: grid;
+  gap: 2rem;  /* Espacio entre las tarjetas */
+}
 .area-card {
   padding: 2rem;
   display: flex;

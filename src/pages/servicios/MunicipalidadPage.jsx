@@ -1,17 +1,16 @@
 import { motion } from 'framer-motion';
 import { FaFileAlt, FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import imagen from '../../assets/img/banner/fachada.jpg';
-import "../../styles/RegistroPage.scss"; // Archivo de estilos específico
+import imagen from '../../assets/img/banner/fachada.jpg'; // Puedes cambiarla si tienes otra imagen
+import "../../styles/RegistroPage.scss"; // Usa el mismo estilo si no tienes uno específico para la municipalidad
 
 // Componente ServiceCard
 const ServiceCard = ({ service, itemVariants }) => {
   const navigate = useNavigate();
 
-  // Lógica para manejar el clic
   const handleClick = () => {
     const serviceId = service
-    .toLowerCase()
+      .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .replace(/\s+/g, '-')
@@ -19,8 +18,7 @@ const ServiceCard = ({ service, itemVariants }) => {
       .replace(/\-\-+/g, '-')
       .replace(/^-+/, '')
       .replace(/-+$/, '');
-    // Convertir el nombre del servicio en un ID para la URL
-    navigate(`/registros-publicos/${serviceId}`);
+    navigate(`/municipalidad/${serviceId}`);
   };
 
   return (
@@ -29,7 +27,7 @@ const ServiceCard = ({ service, itemVariants }) => {
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       className="service-card"
-      onClick={handleClick} // Asignamos el evento de clic
+      onClick={handleClick}
     >
       <div className="service-card-content">
         <FaFileAlt className="icon" />
@@ -39,20 +37,20 @@ const ServiceCard = ({ service, itemVariants }) => {
   );
 };
 
-const RegistrosPage = () => {
+const MunicipalidadPage = () => {
   const navigate = useNavigate();
 
   const services = [
-    "Prescripción adquisitiva",
-    "Saneamiento Catastral",
-    "Búsqueda Catastral",
-    "Declaración de Fábrica",
-    "Acumulación de lote",
-    "Reglamento interno y junta de propietarios",
-    "Rectificación de Área y Linderos",
-     "Independización",
-        "Soluciones a observaciones registrales",
-        "Inmatriculación"
+    "Licencia de funcionamiento",
+    "Licencia para construir",
+    "Subdivisión de lote",
+    "Registro de planos",
+    "Habilitaciones urbanas",
+    "Declaración de fábrica",
+    "Expedientes técnicos para defensa civil",
+    "Conformidad de obra",
+    "Servicios de topografía",
+    "Tasaciones municipales"
   ];
 
   const containerVariants = {
@@ -79,25 +77,20 @@ const RegistrosPage = () => {
       variants={containerVariants}
       className="container2"
     >
-      {/* Imagen con desvanecimiento */}
+      {/* Imagen lateral */}
       <div className="image-container">
-        <img
-          src={imagen}
-          alt="Imagen lateral"
-          className="image"
-        />
+        <img src={imagen} alt="Imagen de fachada municipal" className="image" />
       </div>
 
-      {/* Contenido derecho */}
+      {/* Contenido principal */}
       <div className="content-container">
-        <button
-          onClick={() => navigate(-1)}
-          className="back-button"
-        >
+        <button onClick={() => navigate(-1)} className="back-button">
           <FaArrowLeft className="mr-2" /> Volver
         </button>
-        <h1 className="title">REGISTROS PÚBLICOS</h1>
-        <p className="description">Servicios especializados en trámites registrales</p>
+        <h1 className="title">SERVICIOS MUNICIPALES</h1>
+        <p className="description">
+          La Municipalidad ofrece una variedad de servicios relacionados con trámites urbanos, construcción y permisos, todos orientados a facilitar tu gestión ante la autoridad local.
+        </p>
 
         <div className="services-grid">
           {services.map((service, index) => (
@@ -109,4 +102,4 @@ const RegistrosPage = () => {
   );
 };
 
-export default RegistrosPage;
+export default MunicipalidadPage;

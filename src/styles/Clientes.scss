@@ -1,92 +1,93 @@
-.clientes-trompo {
-  position: relative;
-  width: 100%;
-  padding: 50px 0;
-  background-color: #f8f9fa;  /* Fondo suave */
-}
 
-.clientes-trompo__container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.clientes-trompo__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.clientes-trompo__text {
-  flex: 1;
-  padding-right: 50px; /* Espacio entre el texto y el carrusel */
-}
-
-.clientes-trompo__title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #1e40af;
-  margin-bottom: 10px;
-}
-
-.clientes-trompo__subtitle {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.clientes-trompo__carousel-container {
-  flex: 2;  /* El carrusel ocupará el doble de espacio que el texto */
-  display: flex;
-  justify-content: center;
-}
-
-.clientes-trompo__stage {
-  position: relative;
-  perspective: 1500px; /* Profundidad de la perspectiva para el efecto 3D */
-  width: 100%;
-  height: 300px; /* Ajusta la altura según lo que necesites */
-}
-
-.clientes-trompo__carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out;
-  animation: rotateInfinite 20s linear infinite;  /* Animación infinita */
-}
-
-.clientes-trompo__item {
-  position: absolute;
-  width: 150px;  /* Ancho de los logos */
-  height: 150px; /* Alto de los logos */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;  /* Hace que los logos sean circulares */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);  /* Sombra suave para dar profundidad */
-  transition: transform 0.5s ease;
-  overflow: hidden;  /* Asegura que no haya recortes fuera del contenedor */
-}
-
-.clientes-trompo__logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortarla ni distorsionarla */
-  border-radius: 50%;
-}
-
-/* Animación para rotar el carrusel */
-@keyframes rotateInfinite {
-  from {
-    transform: rotateY(0deg);
+ .clientes-trompo__title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #5f92ff, #a9c9f3);
+    }
   }
-  to {
-    transform: rotateY(360deg);
+
+.clientes-trompo {
+  padding: 40px 0;
+  background-color: #f9f9f9;
+
+  &__container {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  &__carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__stage {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__carousel {
+    display: flex;
+    width: max-content;
+    animation: scrollInfinite 30s linear infinite;
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    width: 200px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__logo {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  // filter: grayscale(100%);  // ❌ Elimina esta línea
+  transition: filter 0.3s ease;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+}
+
+/* Animación infinita */
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

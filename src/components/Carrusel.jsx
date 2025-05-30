@@ -4,6 +4,7 @@ import s from '../assets/img/banner/imagen1.jpg';
 import imagen2 from '../assets/img/banner/imagen4.avif';
 import carrusel3 from '../assets/img/banner/imagen7.jpg';
 import imagen8 from '../assets/img/banner/imagen8.png';
+import asesoria from '../assets/img/banner/asesoria.png';
 import sunat from '../assets/img/banner/sunarp.jpg';
 import fachada from '../assets/img/banner/fachada4.jpg';
 
@@ -17,8 +18,9 @@ export default function HeroCarousel() {
     { img: imagen2, title: "Trámites y Expedientes Sunarp - Registros Públicos" },
     { img: carrusel3, title: "Asesoría Profesional" },
     { img: imagen8, title: "Asesoría Profesional"},
-    { img: sunat, title: "Trámites y Expedientes Sunarp - Registros Públicos" },
-    { img: fachada, title: "Fachada en 3D y Diseño de Interiores"}
+    { img: sunat, title: "Trámites y Gestión - Registros Públicos" },
+    { img: fachada, title: "Fachada en 3D y Diseño de Interiores"},
+    { img: asesoria, title: "Fachada en 3D y Diseño de Interiores"}
   ];
 
   const updateCarousel = () => {
@@ -66,12 +68,6 @@ export default function HeroCarousel() {
           <img src={slide.img} alt={slide.title} className="slide-image" />
           <div className="slide-content">
             <h2 className="slide-title">{slide.title}</h2>
-            <button
-              className="cta-button"
-              onClick={() => window.location.href = './cotizacion.php'}
-            >
-              ¡Cotiza Ahora!
-            </button>
           </div>
         </div>
       ))}
