@@ -8,7 +8,6 @@ import axios from 'axios';
 const FormularioProyecto = () => {
   const [formData, setFormData] = useState({
     tipoProyecto: '',
-    tipoCliente: '',
     dni: '',
     cliente: '',
     departamento: '',

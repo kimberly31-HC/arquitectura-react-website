@@ -128,6 +128,8 @@ const paginatedActivities = latestActivitiesPerDay.slice(
             onChange={e => setIdOt(e.target.value)}
             required
             className="form-input"
+            title="Coloque el número de OT" 
+
           />
         </div>
         <div className="form-group">
@@ -135,6 +137,7 @@ const paginatedActivities = latestActivitiesPerDay.slice(
           <select 
             value={anio} 
             onChange={e => setAnio(e.target.value)}
+            title="Coloque el año de la creación" 
             className="form-select"
           >
             {[2021, 2022, 2023, 2024, 2025].map(year => (
