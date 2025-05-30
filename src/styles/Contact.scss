@@ -1,0 +1,136 @@
+// Contact.scss
+
+$primary-color: #1e3a8a; // Azul principal
+$secondary-color: #ef4444; // Rojo
+$bg-color: #f9fafb; // Color de fondo de los formularios
+$text-color: #333; // Color de texto principal
+$submit-success-color: #10b981; // Verde para el mensaje de éxito
+
+.contact-section {
+  padding: 11rem 0;
+  background: linear-gradient(135deg, $primary-color, #3b82f6);
+  color: white;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  @media(min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.contact-info {
+  width: 100%;
+  max-width: 500px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.contact-description {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    .contact-icon {
+      font-size: 2rem;
+      color: $secondary-color;
+      margin-right: 1rem;
+    }
+    .contact-title {
+      font-weight: bold;
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.contact-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  .form-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color:#333;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: $bg-color;
+    transition: all 0.3s ease;
+    &:focus {
+      border-color: $secondary-color;
+      outline: none;
+    }
+  }
+}
+
+.contact-btn {
+  background-color: $secondary-color;
+  color: white;
+  padding: 1.25rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+  &:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+}
+
+.submit-message {
+  color: $submit-success-color;
+  font-size: 1.125rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.cotizacion-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}

@@ -4,6 +4,8 @@ import { useInView } from 'react-intersection-observer';
 import Chatbot from "../components/Chatbot"; 
 import WhatsAppButton from '../components/Whatsapp'; 
 import Cotizacion from '../components/ButtonCotizacion';
+import '../styles/Contact.scss';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -34,47 +36,49 @@ const Contact = () => {
       setTimeout(() => setSubmitMessage(''), 5000);
     }, 1500);
   };
- const handleWhatsAppClick = () => {
+
+  const handleWhatsAppClick = () => {
     const phoneNumber = '51962303092';
     const message = 'Hola, quiero información sobre el servicio: ';
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
+
   return (
-    <section id="contacto" ref={ref} className="py-20 bg-blue-800 text-white">
+    <section id="contacto" ref={ref} className="contact-section">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="flex flex-col lg:flex-row gap-12"
+          className="contact-content"
         >
-          <div className="lg:w-1/2">
-            <h2 className="section-title text-white">Contacto</h2>
-            <p className="text-xl mb-8">
+          <div className="contact-info">
+            <h2 className="section-title">¡Contáctanos!</h2>
+            <p className="contact-description">
               ¿Listo para comenzar tu próximo proyecto? Contáctanos y hagámoslo realidad.
             </p>
-            
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="text-2xl text-red-500">📍</div>
+
+            <div className="contact-details">
+              <div className="contact-item">
+                <div className="contact-icon">📍</div>
                 <div>
-                  <h3 className="font-bold">Dirección</h3>
+                  <h3 className="contact-title">Dirección</h3>
                   <p>Av. Arquitectura 1234, Ciudad Moderna</p>
                 </div>
               </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="text-2xl text-red-500">📞</div>
+
+              <div className="contact-item">
+                <div className="contact-icon">📞</div>
                 <div>
-                  <h3 className="font-bold">Teléfono</h3>
+                  <h3 className="contact-title">Teléfono</h3>
                   <p>+1 (555) 123-4567</p>
                 </div>
               </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="text-2xl text-red-500">✉️</div>
+
+              <div className="contact-item">
+                <div className="contact-icon">✉️</div>
                 <div>
-                  <h3 className="font-bold">Email</h3>
+                  <h3 className="contact-title">Email</h3>
                   <p>info@arquitech.com</p>
                 </div>
               </div>
@@ -85,11 +89,11 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="lg:w-1/2 bg-white p-8 rounded-lg shadow-xl"
+            className="contact-form-container"
           >
-            <form onSubmit={handleSubmit} className="space-y-6 text-gray-800">
-              <div>
-                <label htmlFor="name" className="block font-medium mb-2">Nombre</label>
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">Nombre</label>
                 <input
                   type="text"
                   id="name"
@@ -97,12 +101,12 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="form-input"
                 />
               </div>
-              
-              <div>
-                <label htmlFor="email" className="block font-medium mb-2">Email</label>
+
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -110,12 +114,12 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="form-input"
                 />
               </div>
-              
-              <div>
-                <label htmlFor="message" className="block font-medium mb-2">Mensaje</label>
+
+              <div className="form-group">
+                <label htmlFor="message" className="form-label">Mensaje</label>
                 <textarea
                   id="message"
                   name="message"
@@ -123,23 +127,23 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="form-input"
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-primary w-full"
+                className="contact-btn"
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
               </button>
-              
+
               {submitMessage && (
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-green-600 text-center mt-4"
+                  className="submit-message"
                 >
                   {submitMessage}
                 </motion.p>
@@ -147,10 +151,15 @@ const Contact = () => {
             </form>
           </motion.div>
         </motion.div>
-                    <Chatbot />
-                    {/* Botón de WhatsApp con efecto flotante */}
-                            <WhatsAppButton onClick={handleWhatsAppClick} />
-                                  <Cotizacion />
+
+        <div className="contact-actions">
+          <Chatbot />
+          <WhatsAppButton onClick={handleWhatsAppClick} />
+        </div>
+
+        <div className="cotizacion-button">
+          <Cotizacion />
+        </div>
       </div>
     </section>
   );
