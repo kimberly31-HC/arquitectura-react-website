@@ -127,6 +127,22 @@ const FormularioProyecto = () => {
     { value: 'Visación de planos', label: 'Visación de planos' },
     { value: 'Otros', label: 'Otros' },
   ];
+
+  function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+      if (cookie.startsWith(name + "=")) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
 useEffect(() => {
   const inputDni = document.querySelector('input[name="dni"]');
   const inputCliente = document.querySelector('input[name="cliente"]');
@@ -185,16 +201,29 @@ useEffect(() => {
     inputDni.removeEventListener("input", manejarCambio);
   };
 }, []);
+
+useEffect(() => {
+  fetch('https://planosperu.com.pe/intranet/api/csrf/', {
+    credentials: 'include',
+  });
+}, []);
+
  const handleSubmit = async (e) => {
   e.preventDefault();
+
+  const csrftoken = getCookie('csrftoken'); // ← obtener token
+
   try {
     const response = await fetch('https://planosperu.com.pe/intranet/api/enviar/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'X-CSRFToken': csrftoken // ← incluir en headers
       },
+      credentials: 'include', // ← importante para incluir cookies
       body: JSON.stringify(formData),
     });
+
     const data = await response.json();
     alert(data.mensaje);
   } catch (error) {
@@ -202,6 +231,7 @@ useEffect(() => {
     console.error(error);
   }
 };
+
 
 
   return (
